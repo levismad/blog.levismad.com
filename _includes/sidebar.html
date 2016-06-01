@@ -1,0 +1,30 @@
+<nav>
+  <h3>&nbsp;</h3>
+  <a href="/">
+    {% if site.data.theme.social.gravatar %}
+    <img src="http://www.gravatar.com/avatar/{{ site.data.theme.social.gravatar }}?s=200" id="gravatar" alt="My photo"/>
+    {% else %}
+    <img src="/logo.png" id="logo" alt="Blog logo"/>
+    {% endif %}
+  </a>
+  <div id="bio">
+    <p>
+      {{ site.data.theme.name }} - stories of life
+    </p>
+  </div>
+
+  <div class="trigger">
+    <ul style=" list-style-type: none;">
+        {% for my_page in site.pages %}
+          {% if my_page.permanent %}
+          <li>
+            <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+          </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+  </div>
+  <div id="social">
+    {% include social.html %}
+  </div>
+</nav>
